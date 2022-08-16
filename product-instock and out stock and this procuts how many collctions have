@@ -1,0 +1,15 @@
+{%comment %} This Products how many collection have {% endcomment %}
+
+ {% for product_collection in product.collections %}
+               <span class="catspan">{{product_collection.title | handle | x | replace: " " , ", " }},</span>
+    {% endfor %}
+    
+    
+    
+    {%comment %} How to show in stock and out of stock {% endcomment %}
+    
+     {% if product.variants.first.inventory_quantity > 0 %}
+        <h3 class="instock"><span class="stock"> In Stock</span></h3> 
+        {% else %}
+        <h3 class="instock"><span class="stock"> Out Of Stock</span> </h3>
+        {% endif %}
